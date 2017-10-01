@@ -20,9 +20,9 @@ font-family: 'Raleway', sans-serif;  */
 
 body {
     margin: 0 auto;
-    background: #1CD8D2;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
     
     width: 100%;
@@ -35,6 +35,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    width: 100%;
 }
 
 .logo-container {
@@ -63,6 +65,7 @@ nav a {
 /* HOMEPAGE STOCK BOARD */
 
 .board {
+    margin-top: 16px;
     width: 100%;
     display: flex;
     height: 16vh;
@@ -126,6 +129,7 @@ nav a {
 
 /* MAIN CONTENT */
 
+
 .main-content-container {
     margin: 0 auto;
     border: 2px solid blue;
@@ -136,6 +140,9 @@ nav a {
     justify-content: space-around;
     align-items: center;
 }
+
+/* MAIN CONTENT -> Left Column */
+
 
 .main-left-col {
     width: 45%;
@@ -160,6 +167,20 @@ nav a {
     0 1px 2px rgba(0,0,0,0.24);
 }
 
+.main-left-col-upper-content-img {
+    border: 2px solid pink;
+    height: 75%;
+}
+
+.main-left-col-lower-content-desc {
+    border: 2px solid navy;
+    height: 25%;
+}
+
+
+/* MAIN-CONTENT -> Right Column */
+
+
 .main-right-col {
     width: 45%;
     height: 95%;
@@ -174,4 +195,16 @@ nav a {
     height: 20%;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
     0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
 }
+
+.right-col-images {
+    border: 2px solid grey;
+    width: 40%;
+}
+
+.right-col-desc {
+    border: 2px solid black;
+    width: 60%;
+}
+
