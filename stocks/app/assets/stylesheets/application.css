@@ -20,9 +20,11 @@ font-family: 'Raleway', sans-serif;  */
 
 body {
     margin: 0 auto;
-    background: #24C6DC; 
-    background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  
-    background: linear-gradient(to right, #514A9D, #24C6DC); 
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    
     width: 100%;
 }
 
@@ -58,6 +60,66 @@ nav a {
     text-decoration: none;
 }
 
+/* HOMEPAGE STOCK BOARD */
 
+.board {
+    width: 100%;
+    display: flex;
+    height: 16vh;
+    justify-content: space-around;
+    align-items: center;
+    background: #614385;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #516395, #614385);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #516395, #614385); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     
+}
+
+.quick-info {
+    height: 80%;
+    width: 20%;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
+    0 1px 2px rgba(0,0,0,0.24);
+    background: #1CD8D2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93EDC7, #1CD8D2);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93EDC7, #1CD8D2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-container {
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    height: 90%;
+    padding: 5px;
+    text-align: left;
+}
+
+.info-container h2 {
+    color: #643498;
+}
+
+.info-container h2,
+.info-container h4,
+.info-container h5 {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+}
+
+.row1 {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.row2 {
+    width: 70%;
+}
 
 

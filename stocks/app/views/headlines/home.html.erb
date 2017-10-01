@@ -1,4 +1,35 @@
 <%= render './partials/nav' %>
-
+<div class="board">
+    <% @board.each do |p| %>
+    <div class="quick-info">
+            <div class="info-container">
+                <% if (p[1][:quote][:changePercent] * 100).round(2) >= 0 %>
+                    <div class="row1">
+                        <h2><%= p[1][:quote][:symbol] %></h2>
+                        <h4 style="color:green"><%= p[1][:quote][:latestPrice]%></h4>
+                        <h4 style="color:green">+<%= (p[1][:quote][:changePercent] * 100).round(2) %>%</h4>
+                        <h5><%= number_with_delimiter(p[1][:quote][:latestVolume], :delimiter => ',') %></h5>
+                    </div>
+                    <div class="row2" style='background-image: url("https://api.peristocks.com/v1/stocks/<%= p[1][:quote][:symbol] %>?width=800&height=400&period=12m&timeframe=d&fg=f1c40f&strokeWidth=4&fillOpacity=0.7&padding=0,0,0,0&labelType=none&labelSize=18&labelColor=18eb9d&labelPadding=15,15"); 
+                        background-size: cover;' >
+                    </div>
+                <% else%>
+                    <div class="row1">
+                        <h2><%= p[1][:quote][:symbol] %></h2>
+                        <h4 style="color:red"><%= p[1][:quote][:latestPrice]%></h4>
+                        <h4 style="color:red">-<%= (p[1][:quote][:changePercent] * 100).round(2) %>%</h4>
+                        <h5><%= number_with_delimiter(p[1][:quote][:latestVolume], :delimiter => ',') %></h5>
+                    </div>
+                    <div class="row2" style='background-image: url("https://api.peristocks.com/v1/stocks/<%= p[1][:quote][:symbol] %>?width=800&height=400&period=12m&timeframe=d&fg=f1c40f&strokeWidth=4&fillOpacity=0.7&padding=0,0,0,0&labelType=none&labelSize=18&labelColor=18eb9d&labelPadding=15,15"); 
+                        background-size: cover;' >
+                    </div>
+                <% end %>
+                
+            </div>
+    </div>
+    <% end %>
+</div>
 <h1>Home</h1>
+
+
 
