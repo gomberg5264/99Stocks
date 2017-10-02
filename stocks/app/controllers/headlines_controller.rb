@@ -1,12 +1,13 @@
+require 'uri'
 
 
 class HeadlinesController < ApplicationController 
+    helper_method :images
 
     def home
-        key = Rails.application.secrets.bing_api_search_key || ENV['BING_API_SEARCH_KEY']
         response = HTTParty.get('https://api.iextrading.com/1.0/stock/market/batch?symbols=aapl,fb,googl,nflx&types=quote')
         news = HTTParty.get('https://api.iextrading.com/1.0/stock/market/news/last/7')
-
+        
         def jsonParse(result)
             return JSON.parse result.to_s, symbolize_names: true
         end
@@ -14,9 +15,20 @@ class HeadlinesController < ApplicationController
         @board = jsonParse(response)
         @story = jsonParse(news)
         
+        
         def images(res)
-            pictures = HTTParty.get("https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=#{res}", :headers=> {'Ocp-Apim-Subscription-Key': key})
-            return jsonParse(pictures)
+            encoded = URI.escape(res.split(' ')[0...4].join(" "))
+            @subscription = '8a3446dcf7c64ea79f747bb39b88d540'
+            #picture from bing image search for headline
+            pictures = HTTParty.get("https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=#{encoded}", :headers=> {"Ocp-Apim-Subscription-Key": @subscription})
+            parsed = jsonParse(pictures)
+            
+            # def parseForImg
+            #     return decodedRes = URI.unescape(res)
+            # end
+
+        
+        
         end
 
     end
