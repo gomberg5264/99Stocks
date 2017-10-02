@@ -44,5 +44,7 @@
 </div>
 
 
-<%= images(@story[0][:headline]) %>
+<% decoded = URI.unescape(images(@story[0][:headline])[:value][0][:contentUrl]) %>
+<% query = Rack::Utils.parse_query URI(decoded).query %>
+<%= query["r"] %>
 

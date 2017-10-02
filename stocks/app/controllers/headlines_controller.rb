@@ -22,14 +22,10 @@ class HeadlinesController < ApplicationController
             #picture from bing image search for headline
             pictures = HTTParty.get("https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=#{encoded}", :headers=> {"Ocp-Apim-Subscription-Key": @subscription})
             parsed = jsonParse(pictures)
-            
-            # def parseForImg
-            #     return decodedRes = URI.unescape(res)
-            # end
+            # return imgUrl = URI.unescape(encoded).to_sym
 
-        
-        
         end
+
 
     end
 
