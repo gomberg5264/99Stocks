@@ -1,9 +1,22 @@
+
+<% decoded  = URI.unescape(images(@story[0][:headline])[:value][1][:contentUrl]) %>
+<% decoded_one  = URI.unescape(images(@story[1][:headline])[:value][0][:contentUrl]) %>
+<% decoded_two  = URI.unescape(images(@story[2][:headline])[:value][0][:contentUrl]) %>
+<% decoded_three  = URI.unescape(images(@story[3][:headline])[:value][0][:contentUrl]) %>
+<% decoded_four  = URI.unescape(images(@story[4][:headline])[:value][0][:contentUrl]) %>
+
+<% query  = Rack::Utils.parse_query URI(decoded).query %>
+<% query_one  = Rack::Utils.parse_query URI(decoded_one).query %>
+<% query_two  = Rack::Utils.parse_query URI(decoded_two).query %>
+<% query_three  = Rack::Utils.parse_query URI(decoded_three).query %>
+<% query_four  = Rack::Utils.parse_query URI(decoded_four).query %>
+
 <div class="main-content-container">
         <div class="main-left-col">
             <div class="main-left-col-upper-content">
             <% @story.each do |display| %>
             <% if display == @story.first %>
-                <div class="main-left-col-upper-content-img"></div>
+                <div class="main-left-col-upper-content-img" style="background-image: url(<%= query["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="main-left-col-lower-content-desc">
                     <h1><%= @story.first[:headline] %></h1>
                 </div>
@@ -17,25 +30,25 @@
         </div>
         <div class="main-right-col">
             <div class="main-right-col-content">
-                <div class="right-col-images">image</div>
+                <div class="right-col-images" style="background-image: url(<%= query_one["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
                     <h3><%= @story.second[:headline]%></h3>
                 </div>
             </div>
             <div class="main-right-col-content">
-                <div class="right-col-images">image</div>
+                <div class="right-col-images"  style="background-image: url(<%= query_two["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
                     <h3><%= @story.third[:headline]%></h3>
                 </div>
             </div>
             <div class="main-right-col-content">
-                <div class="right-col-images">image</div>
+                <div class="right-col-images" style="background-image: url(<%= query_three["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
                     <h3><%= @story.fourth[:headline]%></h3>
                 </div>
             </div>
             <div class="main-right-col-content">
-                <div class="right-col-images">image</div>
+                <div class="right-col-images" style="background-image: url(<%= query_four["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
                     <h3><%= @story[6][:headline]%></h3>
                 </div>
@@ -44,7 +57,7 @@
 </div>
 
 
-<% decoded = URI.unescape(images(@story[0][:headline])[:value][0][:contentUrl]) %>
-<% query = Rack::Utils.parse_query URI(decoded).query %>
-<%= query["r"] %>
+
+
+
 

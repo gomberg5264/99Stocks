@@ -1,6 +1,8 @@
 require 'uri'
 
 
+
+
 class HeadlinesController < ApplicationController 
     helper_method :images
 
@@ -17,7 +19,7 @@ class HeadlinesController < ApplicationController
         
         
         def images(res)
-            encoded = URI.escape(res.split(' ')[0...4].join(" "))
+            encoded = URI.escape(res.split(' ')[0...6].join(" "))
             @subscription = '8a3446dcf7c64ea79f747bb39b88d540'
             #picture from bing image search for headline
             pictures = HTTParty.get("https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=#{encoded}", :headers=> {"Ocp-Apim-Subscription-Key": @subscription})
@@ -25,7 +27,6 @@ class HeadlinesController < ApplicationController
             # return imgUrl = URI.unescape(encoded).to_sym
 
         end
-
 
     end
 

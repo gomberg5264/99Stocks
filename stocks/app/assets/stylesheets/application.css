@@ -132,7 +132,6 @@ nav a {
 
 .main-content-container {
     margin: 0 auto;
-    border: 2px solid blue;
     width: 80%;
     margin-top: 40px;
     height: 118vh;
@@ -147,7 +146,6 @@ nav a {
 .main-left-col {
     width: 45%;
     height: 95%;
-    border: 2px solid yellow;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -155,30 +153,26 @@ nav a {
 
 .main-left-col-upper-content {
     height: 60%;
-    border: 2px solid purple;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
     0 1px 2px rgba(0,0,0,0.24);
 }
 
 .main-left-col-lower-content {
     height: 30%;
-    border: 2px solid red;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
     0 1px 2px rgba(0,0,0,0.24);
 }
 
 .main-left-col-upper-content-img {
-    border: 2px solid pink;
     height: 75%;
 }
 
 .main-left-col-lower-content-desc {
-    border: 2px solid navy;
     height: 25%;
 }
 
 .main-left-col-lower-content-desc h1 {
-    font-size: 30pt;
+    font-size: 24pt;
     margin: 0 auto;
     padding: 10px;
     white-space: pre-wrap;
@@ -193,14 +187,12 @@ nav a {
 .main-right-col {
     width: 45%;
     height: 95%;
-    border: 2px solid orange;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .main-right-col-content {
-    border: 2px solid cyan;
     height: 20%;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
     0 1px 2px rgba(0,0,0,0.24);
@@ -208,12 +200,10 @@ nav a {
 }
 
 .right-col-images {
-    border: 2px solid grey;
     width: 40%;
 }
 
 .right-col-desc {
-    border: 2px solid black;
     width: 60%;
 }
 
