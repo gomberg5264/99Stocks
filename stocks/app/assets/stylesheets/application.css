@@ -25,7 +25,11 @@ body {
     margin: 0 auto;
     /* background: rgba(0,0,0,0.80); */
     width: 100%;
-    background: black;
+    /* background: black; */
+    background: #36D1DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
 }
 
 /* NAVIGATION */
@@ -141,7 +145,7 @@ nav a {
 
 /* DASHBOARD */
  #dash-container {
-    width: 99.9%;
+    width: 99.95%;
     height: 100vh;
     margin: 0 auto;
     margin-top: 14px;
@@ -157,11 +161,9 @@ nav a {
  #dash-content {
      height: 150vh;
      flex: 5;
-     background: #2b5876;  /* fallback for old browsers */
-     background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-     background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-     
-
+     /* background: #2b5876;   */
+     /* background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  
+     background: linear-gradient(to right, #4e4376, #2b5876);  */
  }
 
  .dash {
@@ -179,6 +181,33 @@ nav a {
  #favorites {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
     0 1px 2px rgba(0,0,0,0.24);
+    display: flex;
+    flex-direction: column;
+ }
+
+ #favorites .text-bar,
+ #favorites .top-charts {
+     margin: 0 auto;
+     width: 99%;
+     justify-content: space-around;
+ }
+
+ #favorites .text-bar {
+     height: 16%;
+     display: flex;
+     align-items: center;
+ }
+
+ #favorites .top-charts {
+     height: 75%;
+ }
+
+ #favorites h4 {
+    font-family: 'Work Sans', sans-serif;    
+    color: rgba(250, 250, 250, 0.7);
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
  }
 
  #top-bar {
@@ -191,10 +220,58 @@ nav a {
     font-weight: 200;
  }
 
+ #top-bar span {
+    font-family: 'Work Sans', sans-serif;    
+    font-weight: 400;
+    font-size: 12pt;
+ }
+
  #favorites {
      height: 16%;
      background: rgba(250, 250, 250, 0.1);
  }
+
+ .top-charts {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-end;
+ }
+
+ .top-charts .min-chart {
+     height: 80%;
+     width: 23%;
+     margin-bottom: 2px;
+     display: flex;
+ }
+
+ .min-chart-info {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     height: 100%;
+     width: 35%;
+     text-align: center;
+ }
+
+ .min-chart-info h3,
+ .min-chart-info h4,
+ .min-chart-info h5,
+ .min-chart-info h6 {
+     margin: 0;
+     padding: 0;
+     font-family: 'Work Sans', sans-serif;    
+     color: rgba(250, 250, 250, 0.7);
+     font-weight: 200;
+    
+ }
+
+
+ .min-chart-graph {
+     height: 100%;
+     width: 65%;
+ }
+
+ 
 
  #top-stocks {
      height: 30%;
@@ -214,4 +291,5 @@ nav a {
      background: rgba(250, 250, 250, 0.1);
      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
      0 1px 2px rgba(0,0,0,0.24);
+     padding: 5px;
  }

@@ -1,12 +1,42 @@
 <div id="dash-container">
-    <div class="dash" id="sidenav">
-    
-    </div>
+    <div class="dash" id="sidenav"></div>
     <div class="dash" id="dash-content">
         <div class="dash-row" id="top-bar">
-            <h2>Dashboard</h2ß>
+            <h2>Dashboard <span>Welcome back, </span></h2>
         </div>
         <div class="dash-row" id="favorites">
+            <div class="text-bar">
+                <div>
+                    <h4>Most Followed<h4>
+                </div>
+            </div>
+            <div class="top-charts">
+                <% @board.each do |p| %>
+                <% if (p[1][:quote][:changePercent] * 100).round(2) >= 0 %>
+                <div class="min-chart">
+                    <div class="min-chart-info">
+                        <h3><%= p[1][:quote][:symbol] %></h3>
+                        <h4 style="color:cyan">$<%= p[1][:quote][:latestPrice]%></h4>
+                        <h5 style="color:cyan">+<%= (p[1][:quote][:changePercent] * 100).round(2) %>%</h5>
+                        <h6><%= number_with_delimiter(p[1][:quote][:latestVolume], :delimiter => ',') %></h6>
+                    </div>
+                    <div class="min-chart-graph" style='background-image: url("https://api.peristocks.com/v1/stocks/<%= p[1][:quote][:symbol] %>?width=422&height=150&period=1m&timeframe=d&fg=18eb9d&strokeWidth=2&padding=15,15,15,15&labelType=symbol&labelSize=0&labelColor=18eb9d&labelPadding=0,90");
+                     background-size: cover; background-repeat: no-repeat; background-position: center;'></div>
+                </div>
+                <% else %>
+                <div class="min-chart">
+                    <div class="min-chart-info">
+                        <h3><%= p[1][:quote][:symbol] %></h3>
+                        <h4 style="color:pink">$<%= p[1][:quote][:latestPrice]%></h4>
+                        <h5 style="color:pink"><%= (p[1][:quote][:changePercent] * 100).round(2) %>%</h5>
+                        <h6><%= number_with_delimiter(p[1][:quote][:latestVolume], :delimiter => ',') %></h6>
+                    </div>
+                    <div class="min-chart-graph" style='background-image: url("https://api.peristocks.com/v1/stocks/<%= p[1][:quote][:symbol] %>?width=422&height=150&period=1m&timeframe=d&fg=f70449&strokeWidth=2&padding=15,15,15,15&labelType=symbol&labelSize=0&labelColor=18eb9d&labelPadding=0,90");
+                     background-size: cover; background-repeat: no-repeat; background-position: center;'></div>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
         </div>
         <div class="dash-row" id="top-stocks">
             <div class="row-card" id="row-card-one"></div>
