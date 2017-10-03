@@ -153,13 +153,13 @@ nav a {
  }
 
  #sidenav {
-     height: 150vh;
+     height: 180vh;
      background: rgba(0, 0, 0, 0.8);
      flex: 1
  }
 
  #dash-content {
-     height: 150vh;
+     height: 180vh;
      flex: 5;
      /* background: #2b5876;   */
      /* background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  
@@ -292,4 +292,24 @@ nav a {
      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
      0 1px 2px rgba(0,0,0,0.24);
      padding: 5px;
+ }
+
+
+ #top-stocks .top-gainers {
+     border: 2px solid red;
+     height: 8%;
+ }
+
+ #top-stocks .row-card {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+ }
+
+ #top-stocks .title {
+     height: 5%;
+ }
+
+ .title {
+     display: flex;
  }
