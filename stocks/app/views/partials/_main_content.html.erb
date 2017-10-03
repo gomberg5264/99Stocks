@@ -1,15 +1,19 @@
 
-<% decoded  = URI.unescape(images(@story[0][:headline])[:value][1][:contentUrl]) %>
+<% decoded  = URI.unescape(images(@story[12][:headline])[:value][0][:contentUrl]) %>
 <% decoded_one  = URI.unescape(images(@story[1][:headline])[:value][0][:contentUrl]) %>
-<% decoded_two  = URI.unescape(images(@story[2][:headline])[:value][0][:contentUrl]) %>
+<% decoded_two  = URI.unescape(images(@story[21][:headline])[:value][0][:contentUrl]) %>
 <% decoded_three  = URI.unescape(images(@story[3][:headline])[:value][0][:contentUrl]) %>
-<% decoded_four  = URI.unescape(images(@story[4][:headline])[:value][0][:contentUrl]) %>
+<% decoded_four  = URI.unescape(images(@story[17][:headline])[:value][0][:contentUrl]) %>
+<% decoded_five = URI.unescape(images(@story[15][:headline])[:value][2][:contentUrl]) %>
+<% decoded_six = URI.unescape(images(@story[19][:headline])[:value][2][:contentUrl]) %>
 
 <% query  = Rack::Utils.parse_query URI(decoded).query %>
 <% query_one  = Rack::Utils.parse_query URI(decoded_one).query %>
 <% query_two  = Rack::Utils.parse_query URI(decoded_two).query %>
 <% query_three  = Rack::Utils.parse_query URI(decoded_three).query %>
 <% query_four  = Rack::Utils.parse_query URI(decoded_four).query %>
+<% query_five  = Rack::Utils.parse_query URI(decoded_five).query %>
+<% query_six  = Rack::Utils.parse_query URI(decoded_six).query %>
 
 <div class="main-content-container">
         <div class="main-left-col">
@@ -18,7 +22,7 @@
             <% if display == @story.first %>
                 <div class="main-left-col-upper-content-img" style="background-image: url(<%= query["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="main-left-col-lower-content-desc">
-                    <h1><%= @story.first[:headline] %></h1>
+                    <h1><%= @story[12][:headline] %></h1>
                 </div>
             <% end %>
             <% end %>
@@ -38,7 +42,7 @@
             <div class="main-right-col-content">
                 <div class="right-col-images"  style="background-image: url(<%= query_two["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
-                    <h3><%= @story.third[:headline]%></h3>
+                    <h3><%= @story[21][:headline]%></h3>
                 </div>
             </div>
             <div class="main-right-col-content">
@@ -50,7 +54,19 @@
             <div class="main-right-col-content">
                 <div class="right-col-images" style="background-image: url(<%= query_four["r"] %>); background-size: cover; background-position: center center;"></div>
                 <div class="right-col-desc">
-                    <h3><%= @story[6][:headline]%></h3>
+                    <h3><%= @story[17][:headline]%></h3>
+                </div>
+            </div>
+            <div class="main-right-col-content">
+                <div class="right-col-images" style="background-image: url(<%= query_five["r"] %>); background-size: cover; background-position: center center;"></div>
+                <div class="right-col-desc">
+                    <h3><%= @story[15][:headline]%></h3>
+                </div>
+            </div>
+            <div class="main-right-col-content">
+                <div class="right-col-images" style="background-image: url(<%= query_six["r"] %>); background-size: cover; background-position: center center;"></div>
+                <div class="right-col-desc">
+                    <h3><%= @story[19][:headline]%></h3>
                 </div>
             </div>
         </div>
