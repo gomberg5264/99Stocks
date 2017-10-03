@@ -296,7 +296,6 @@ nav a {
 
 
  #top-stocks .top-gainers {
-     border: 2px solid red;
      height: 8%;
  }
 
@@ -312,4 +311,34 @@ nav a {
 
  .title {
      display: flex;
+     justify-content: space-around;
+     align-items: center;
+     font-family: 'Work Sans', sans-serif;    
+     color: rgba(250, 250, 250, 0.7);
+     font-weight: 300;
+ }
+
+ #top-title {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    margin: 10px;
+ }
+
+ .top-gainers {
+    color: rgba(250, 250, 250, 0.7);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+ }
+
+ .top-info {
+     width: 100px;
+     margin-right: 25px;
+     font-family: 'Work Sans', sans-serif;
+     font-weight: 100;
+     text-align: center;
+     letter-spacing: 1px;
  }

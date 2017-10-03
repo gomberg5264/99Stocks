@@ -1,0 +1,15 @@
+<div id="top-title">TOP GAINERS</div>
+    <div class="top-gainers title">
+    <div>Symbol</div>
+    <div>Last Price</div>
+    <div>Change</div>
+    <div>Pct Change</div>
+</div>
+<% @gainers.each do |g| %>
+<div class="top-gainers">
+    <div class="top-info"><%= g[:symbol]%></div>
+    <div class="top-info"><%= g[:latestPrice]%></div>
+    <div class="top-info">+ <%= g[:change].round(2)%></div>
+    <div class="top-info" style="color:cyan;">+ <%= g[:changePercent].round(2)%>%</div>
+</div>
+<% end %>
