@@ -26,9 +26,9 @@ body {
     /* background: rgba(0,0,0,0.80); */
     width: 100%;
     /* background: black; */
-    background: #36D1DC;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #283c86;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #45a247, #283c86);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #45a247, #283c86); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 }
 
@@ -143,6 +143,53 @@ nav a {
     font-size: 45pt;
 }
 
+/* SIDEBAR NAVIGATION */
+
+#sidenav {
+    height: 94vh;
+    background: rgba(0, 0, 0, 0.8);
+    width: 15%;
+    position: fixed;
+    padding: 0;
+}
+
+.sidebar-ul {
+    margin-top: -522px;
+    height: 30%;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.sidebar-ul li {
+    list-style-type: none;
+}
+
+.sidebar-ul div {
+    width: 98%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(250, 250, 250, 0.04);
+}
+
+.sidebar-ul li a {
+    font-family: 'Work Sans', sans-serif;    
+    color: rgba(250, 250, 250, 0.7);
+    font-weight: 400;
+    font-size: 11pt; 
+    letter-spacing: 1px;
+}
+
+.sidebar-ul li i {
+    padding-right: 10px;
+    font-size: 13pt;
+}
+
 /* DASHBOARD */
  #dash-container {
     width: 99.95%;
@@ -152,16 +199,13 @@ nav a {
     display: flex;
  }
 
- #sidenav {
-     height: 180vh;
-     background: rgba(0, 0, 0, 0.8);
-     flex: 1
- }
 
  #dash-content {
      height: 180vh;
-     flex: 5;
-     /* background: #2b5876;   */
+     width: 85%;
+     position: relative;
+     margin-left: 15%;  
+        /* background: #2b5876;   */
      /* background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  
      background: linear-gradient(to right, #4e4376, #2b5876);  */
  }
@@ -229,6 +273,7 @@ nav a {
  #favorites {
      height: 16%;
      background: rgba(250, 250, 250, 0.1);
+     height: 12%;
  }
 
  .top-charts {
