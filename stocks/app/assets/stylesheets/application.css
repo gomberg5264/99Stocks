@@ -154,8 +154,7 @@ nav a {
 }
 
 .sidebar-ul {
-    margin-top: -522px;
-    height: 30%;
+    height: 100%;
     width: 100%;
     padding: 0;
     text-align: center;
@@ -168,13 +167,17 @@ nav a {
     list-style-type: none;
 }
 
-.sidebar-ul div {
+.sidebar-ul .sidebar-div-link {
     width: 98%;
-    height: 25%;
+    height: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: rgba(250, 250, 250, 0.04);
+}
+
+.sidebar-ul .sidebar-div-link:hover {
+    background: black;
 }
 
 .sidebar-ul li a {
@@ -183,6 +186,7 @@ nav a {
     font-weight: 400;
     font-size: 11pt; 
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .sidebar-ul li i {
@@ -190,7 +194,32 @@ nav a {
     font-size: 13pt;
 }
 
+
+.tweets {
+    height: 20%;
+    border: 2px solid pink;
+    display: flex;
+
+}
+
+.twit-thumb {
+    border: 2px solid blue;
+    width: 30%; 
+    height: 35%;
+}
+
+.twit-post {
+    border: 2px solid orange;
+    width: 70%;
+    padding: 2px;
+    padding-top: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* DASHBOARD */
+
  #dash-container {
     width: 99.95%;
     height: 100vh;
