@@ -488,4 +488,63 @@ nav a {
      margin-left: 15%;
      height: 90%;
      margin-top: 1%;
+     display: flex;
+     color: rgba(250, 250, 250, 0.7);
+     font-family: 'Work Sans', sans-serif;
+     font-weight: 200;
+ }
+
+ .left-box {
+     border: 2px solid pink;
+     width: 50%;
+ }
+
+ .left-box-top {
+     border: 2px solid green;
+     height: 30%;
+     display: flex;
+     align-items: center;
+ }
+
+ .left-box-top h1 {
+     font-size: 100pt;
+     font-weight: 100;
+     margin: 0;
+     padding: 0;
+ }
+
+ .left-box-top h3 {
+    font-size: 20pt;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.left-box-top h5 {
+    font-size: 12pt;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+.lbt-left {
+    width: 50%;
+    border: 2px solid white;
+}
+
+.lbt-right {
+    width: 50%;
+    border: 2px solid yellow;
+}
+
+ .left-box-bottom {
+     border: 2px solid red;
+     height: 70%;
+ }
+
+ .right-box {
+     border: 2px solid blue;
+     width: 50%;
  }

@@ -1,7 +1,25 @@
 <div id="dash-container">
     <%= render './partials/side_nav'%>
     <div class="layout" id="content-layout">
-        <%= @quote %>
+        <div class="left-box">
+            <div class="left-box-top">
+                <div class="lbt-left">
+                <h1><%= @company[:symbol] %><h1>
+                <h3><%= @company[:companyName] %><h3>
+                <h5>Industry: <%= @company[:industry] %><h5>
+                </div>
+                <div class="lbt-right">
+                    <h5><%= @company[:description]%></h5>
+                    <br>
+                    <h5><%= @company[:website]%></h5>
+                    <h5>CEO: <%= @company[:CEO]%></h5>
+                </div>
+            </div>
+            <div class="left-box-bottom">
+                sss
+            </div>
+        </div>
+        <div class="right-box">dss</div>
     </div>
 
 </div>
