@@ -494,13 +494,14 @@ nav a {
      font-weight: 200;
  }
 
+ /* LEFT BOX */
+
  .left-box {
-     border: 2px solid pink;
      width: 50%;
  }
 
  .left-box-top {
-     border: 2px solid green;
+     border-bottom: 0.5px solid rgba(250, 250, 250, 0.7);
      height: 30%;
      display: flex;
      align-items: center;
@@ -531,20 +532,31 @@ nav a {
 
 .lbt-left {
     width: 50%;
-    border: 2px solid white;
 }
 
 .lbt-right {
     width: 50%;
-    border: 2px solid yellow;
 }
 
  .left-box-bottom {
-     border: 2px solid red;
      height: 70%;
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: space-around;
  }
 
+ .key_stat {
+     height: 4%;
+     width: 32%;
+     font-weight: 300;
+     font-size: 11pt;
+     letter-spacing: 1px;
+ }
+
+ /* RIGHT BOX */
+
  .right-box {
-     border: 2px solid blue;
+    border-left: 0.5px solid rgba(250, 250, 250, 0.7);
      width: 50%;
  }

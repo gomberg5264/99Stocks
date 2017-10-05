@@ -11,12 +11,36 @@
                 <div class="lbt-right">
                     <h5><%= @company[:description]%></h5>
                     <br>
+                    <h5>Chief Executive: <%= @company[:CEO]%></h5>
+                    <br>
                     <h5><%= @company[:website]%></h5>
-                    <h5>CEO: <%= @company[:CEO]%></h5>
                 </div>
             </div>
             <div class="left-box-bottom">
-                sss
+                <div class="key_stat">MktCp: $<%= number_with_delimiter(@keystats[:marketcap], :delimiter => ',') %></div>
+                <div class="key_stat">Beta: <%= @keystats[:beta] %></div>
+                <div class="key_stat">52wk Hi: $<%= @keystats[:week52high].round(2) %></div>
+                <div class="key_stat">52wk Lo: $<%= @keystats[:week52low].round(2) %></div>
+                <div class="key_stat">Short Int: <%= number_with_delimiter(@keystats[:shortInterest], :delimiter => ',') %></div>
+                <div class="key_stat">EPS: <%= @keystats[:latestEPS] %></div>
+                <div class="key_stat">Shrs Out: <%= number_with_delimiter(@keystats[:sharesOutstanding], :delimiter => ',') %></div>
+                <div class="key_stat">Float: <%= number_with_delimiter(@keystats[:float], :delimiter => ',') %></div>
+                <div class="key_stat">Return on Equity: <%= @keystats[:returnOnEquity] %></div>
+                <div class="key_stat">EBITDA: <%= number_with_delimiter(@keystats[:EBITDA], :delimiter => ',') %></div>
+                <div class="key_stat">Revenue: <%= number_with_delimiter(@keystats[:revenue], :delimiter => ',') %></div>
+                <div class="key_stat">Gross: <%= number_with_delimiter(@keystats[:grossProfit], :delimiter => ',') %></div>
+                <div class="key_stat">Price to Book: <%= @keystats[:priceToBook] %></div>
+                <div class="key_stat">Rev per shr: <%= @keystats[:revenuePerShare] %></div>
+                <div class="key_stat">Consensus EPS: <%= @keystats[:consensusEPS] %></div>
+                <div class="key_stat">Profit Margin: <%= @keystats[:profitMargin] %></div>
+                <div class="key_stat">Institution Held: <%= @keystats[:institutionPercent].round(2) %>%</div>
+                <div class="key_stat">Insider Held: <%= @keystats[:insiderPercent].round(2) %>%</div>
+                <div class="key_stat">1 Mo Chg: <%= @keystats[:month1ChangePercent].round(2) %>%</div>
+                <div class="key_stat">3 Mo Chg: <%= @keystats[:month3ChangePercent].round(2) %>%</div>
+                <div class="key_stat">6 Mo Chg: <%= @keystats[:month6ChangePercent].round(2) %>%</div>
+                <div class="key_stat">1 Yr Chg: <%= @keystats[:year1ChangePercent].round(2) %>%</div>
+                <div class="key_stat">5 Yr Chg: <%= @keystats[:year5ChangePercent].round(2) %>%</div>
+                <div class="key_stat">YTD Chg: <%= @keystats[:ytdChangePercent].round(2) %>%</div>
             </div>
         </div>
         <div class="right-box">dss</div>

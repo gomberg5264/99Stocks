@@ -83,7 +83,7 @@ class HeadlinesController < ApplicationController
         stockTwits = HTTParty.get('https://api.stocktwits.com/api/2/streams/trending.json')
         quote = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/quote?displayPercent=true")
         company = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/company")
-        keystats = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/company")
+        keystats = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/stats")
         financials = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/company")
         logo = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/logo")
 
