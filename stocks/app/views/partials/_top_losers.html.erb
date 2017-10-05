@@ -6,10 +6,12 @@
     <div>Pct Change</div>
 </div>
 <% @losers.each do |i| %>
-<div class="top-gainers">
-    <div class="top-info"><%= i[:symbol]%></div>
-    <div class="top-info"><%= i[:latestPrice]%></div>
-    <div class="top-info"><%= i[:change].round(2)%></div>
-    <div class="top-info" style="color:#e24f7b;"><%= i[:changePercent].round(2)%>%</div>
-</div>
+<a href=<%= single_path(i[:symbol])%> >
+    <div class="top-gainers">
+        <div class="top-info"><%= i[:symbol]%></div>
+        <div class="top-info"><%= i[:latestPrice]%></div>
+        <div class="top-info"><%= i[:change].round(2)%></div>
+        <div class="top-info" style="color:#e24f7b;"><%= i[:changePercent].round(2)%>%</div>
+    </div>
+</a>
 <% end %>

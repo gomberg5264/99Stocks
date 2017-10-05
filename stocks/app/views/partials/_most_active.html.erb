@@ -6,16 +6,18 @@
     <div>Pct Change</div>
 </div>
 <% @mostActive.each do |g| %>
-<div class="top-gainers">
-    <div class="top-info"><%= g[:symbol]%></div>
-    <div class="top-info"><%= g[:latestPrice]%></div>
-        <div class="top-info"><%= number_with_delimiter(g[:latestVolume], :delimiter => ',') %></div>
-        <% if g[:change] >= 0 %>
-            <div class="top-info" 
-            style="color:cyan;">+ <%= g[:changePercent].round(2)%>%</div>
-        <% else %>
-            <div class="top-info" 
-            style="color:#e24f7b;"><%= g[:changePercent].round(2)%>%</div>
-    <% end %>
-</div>
+<a href=<%= single_path(g[:symbol])%> >
+    <div class="top-gainers">
+        <div class="top-info"><%= g[:symbol]%></div>
+        <div class="top-info"><%= g[:latestPrice]%></div>
+            <div class="top-info"><%= number_with_delimiter(g[:latestVolume], :delimiter => ',') %></div>
+            <% if g[:change] >= 0 %>
+                <div class="top-info" 
+                style="color:cyan;">+ <%= g[:changePercent].round(2)%>%</div>
+            <% else %>
+                <div class="top-info" 
+                style="color:#e24f7b;"><%= g[:changePercent].round(2)%>%</div>
+        <% end %>
+    </div>
+</a>
 <% end %>
