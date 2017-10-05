@@ -479,3 +479,13 @@ nav a {
     font-family: 'Work Sans', sans-serif;
     font-weight: 200;
  }
+
+ /* SINGLE RENDERED PAGES */
+
+ .layout {
+     border: 2px solid orange;
+     width: 85%;
+     margin-left: 15%;
+     height: 90%;
+     margin-top: 1%;
+ }
