@@ -559,4 +559,44 @@ nav a {
  .right-box {
     border-left: 0.5px solid rgba(250, 250, 250, 0.7);
      width: 50%;
+     display: flex;
+     flex-direction: column;
  }
+
+ .price {
+     height: 30%;
+     border: 2px solid blue;
+     text-align: center;
+ }
+
+ .price h1 {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200;
+    font-size: 60pt;
+    margin: 0;
+    padding: 2px;
+ }
+
+ .price h2 {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200;
+    font-size: 30pt;
+    margin: 0;
+    padding: 2px;
+ }
+
+ .price h3 {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200;
+    font-size: 15pt;
+    margin: 0;
+    padding: 2px;
+ }
+
+ .financials {
+    height: 60%;
+    border: 2px solid orange;
+}
