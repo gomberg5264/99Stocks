@@ -15,9 +15,13 @@
                 <%= render './partials/top_losers'%>
             </div>
         </div>
-        <div class="dash-row" id="top-news">
-            <div class="row-card" id="row-card-three"></div>
-            <div class="row-card"id="row-card-four"></div>
+        <div class="dash-row" id="top-stocks">
+            <div class="row-card" id="row-card-three">
+                <%= render './partials/most_active'%>
+            </div>
+            <div class="row-card"id="row-card-four">
+                <%= @news %>
+            </div>
         </div>
     </div>
 

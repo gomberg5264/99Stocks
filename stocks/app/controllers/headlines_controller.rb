@@ -7,11 +7,14 @@ class HeadlinesController < ApplicationController
     helper_method :images
 
     def home
+        newsKey = Rails.application.secrets.news_api_key || ENV["NEWS_API_KEY"]
         response = HTTParty.get('https://api.iextrading.com/1.0/stock/market/batch?symbols=aapl,fb,googl,nflx&types=quote')
         news = HTTParty.get('https://api.iextrading.com/1.0/stock/market/news/last/35')
         topGainers = HTTParty.get('https://api.iextrading.com/1.0//stock/market/list/gainers')
         topLosers = HTTParty.get('https://api.iextrading.com/1.0//stock/market/list/losers')
         stockTwits = HTTParty.get('https://api.stocktwits.com/api/2/streams/trending.json')
+        mostActive = HTTParty.get('https://api.iextrading.com/1.0//stock/market/list/mostactive')
+        recent_news = HTTParty.get("https://newsapi.org/v1/articles?source=bloomberg&sortBy=top&apiKey=#{newsKey}")
 
         def jsonParse(result)
             return JSON.parse result.to_s, symbolize_names: true
@@ -22,6 +25,8 @@ class HeadlinesController < ApplicationController
         @gainers = jsonParse(topGainers)
         @losers = jsonParse(topLosers)
         @stockTwits = jsonParse(stockTwits)
+        @mostActive = jsonParse(mostActive)
+        @news = jsonParse(recent_news)
 
         def stockTweets 
             tweet_arr = Array.new
