@@ -49,7 +49,28 @@
                 <h2><%= @quote[:changePercent].round(2)%>%</h2>
                 <h3><%= number_with_delimiter(@quote[:avgTotalVolume], :delimiter => ',')%></h3>
             </div>
-            <div class="financials">xxx</div>
+            <div class="financials">
+                <div class="financial-stats" style="font-weight: 100;">FINANCIALS</div>
+                <br>
+                <div class="financials-stats">Gross Profit: $<%= number_with_delimiter(@financials[:financials][0][:grossProfit], :delimiter => ',') %></div>
+                <div class="financials-stats">Cost of Revenue: $<%= number_with_delimiter(@financials[:financials][0][:costOfRevenue], :delimiter => ',') %></div>
+                <div class="financials-stats">Operating Revenue: $<%= number_with_delimiter(@financials[:financials][0][:operatingRevenue], :delimiter => ',') %></div>
+                <div class="financials-stats">Total Revenue: $<%= number_with_delimiter(@financials[:financials][0][:totalRevenue], :delimiter => ',') %></div>
+                <div class="financials-stats">Operating Income: $<%= number_with_delimiter(@financials[:financials][0][:operatingIncome], :delimiter => ',') %></div>
+                <div class="financials-stats">Net Income: $<%= number_with_delimiter(@financials[:financials][0][:netIncome], :delimiter => ',') %></div>
+                <div class="financials-stats">R & D: $<%= number_with_delimiter(@financials[:financials][0][:researchAndDevelopment], :delimiter => ',') %></div>
+                <div class="financials-stats">Operatign Expenses: $<%= number_with_delimiter(@financials[:financials][0][:operatingExpense], :delimiter => ',') %></div>
+                <div class="financials-stats">Current Assets: $<%= number_with_delimiter(@financials[:financials][0][:currentAssets], :delimiter => ',') %></div>
+                <div class="financials-stats">Total Assets: $<%= number_with_delimiter(@financials[:financials][0][:totalAssets], :delimiter => ',') %></div>
+                <div class="financials-stats">Total Liabilities: $<%= number_with_delimiter(@financials[:financials][0][:totalLiabilities], :delimiter => ',') %></div>
+                <div class="financials-stats">Current Cash: $<%= number_with_delimiter(@financials[:financials][0][:currentCash], :delimiter => ',') %></div>
+                <div class="financials-stats">Current Debt: $<%= number_with_delimiter(@financials[:financials][0][:currentDebt], :delimiter => ',') %></div>
+                <div class="financials-stats">Total Cash: $<%= number_with_delimiter(@financials[:financials][0][:totalCash], :delimiter => ',') %></div>
+                <div class="financials-stats">Total Debt: $<%= number_with_delimiter(@financials[:financials][0][:totalDebt], :delimiter => ',') %></div>
+                <div class="financials-stats">Shareholder Equity: $<%= number_with_delimiter(@financials[:financials][0][:shareholderEquity], :delimiter => ',') %></div>
+                <div class="financials-stats">Cash Flow: $<%= number_with_delimiter(@financials[:financials][0][:cashFlow], :delimiter => ',') %></div>
+                
+            </div>
         </div>
     </div>
 
