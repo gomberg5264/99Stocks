@@ -5,15 +5,17 @@
         <div class="sidebar-div-link"><li class="sidebar-li-links"><a href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i>News</a></li></div>
         <div class="sidebar-div-link"><li class="sidebar-li-links"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Help</a></li></div>
         <div><li class="sidebar-li-links"><a class="twits" style="font-size:8pt;">StockTwits</a></li></div>
-        <div class="tweets"><li class="sidebar-li-links">
-            <li class="twit-thumb">Help</li>
-            <li class="twit-post">
-                <div>NAME</div>
-                <br>
-                <div>POST</div>
-            </li>
-        </div>
-        <div class="tweets"><li class="sidebar-li-links"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Help</a></li></div>
-        <div class="tweets"><li class="sidebar-li-links"><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i>Help</a></li></div>
+
+        <% @shortTweets.each do |insert| %>
+            <div class="tweets"><li class="sidebar-li-links">
+                <li class="twit-thumb" style="background-image: url(<%= insert[:image] %>);
+                background-size: cover; background-position: center;"></li>
+                <li class="twit-post">
+                    <div class="tweet_name"><%= insert[:name] %></div>
+                    <br>
+                    <div><%= insert[:body] %></div>
+                </li>
+            </div>
+        <% end %>
     </ul>
 </div>
