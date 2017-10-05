@@ -1,0 +1,10 @@
+<div class="news_title">TOP NEWS</div>
+<% @topNews.each do |p| %>
+    <div class="news_thumb">
+        <div class="article_thumb" style="background-image: url(<%= p[:urlToImage]%>); 
+        background-size: cover; background-position: center;"></div>
+        <div class="article_headline">
+            <%= p[:title]%>
+        </div>
+    </div>
+<% end %>

@@ -27,7 +27,27 @@ class HeadlinesController < ApplicationController
         @stockTwits = jsonParse(stockTwits)
         @mostActive = jsonParse(mostActive)
         @news = jsonParse(recent_news)
+        
+        
+        def getNews
+            news_arr = Array.new
+            count = 0
+        
+            (0..4).each do |i|
+                if count > 4
+                    break
+                else
+                    news_arr[count] = {
+                        :title => (@news[:articles][i][:title]),
+                        :urlToImage => (@news[:articles][i][:urlToImage])
+                    }
+                    count += 1
+                end
+            end
 
+            return news_arr
+        end
+        
         def stockTweets 
             tweet_arr = Array.new
             count = 0
@@ -47,8 +67,9 @@ class HeadlinesController < ApplicationController
             end
             return tweet_arr
         end
-
+        
         @shortTweets = stockTweets
+        @topNews = getNews
         
     
 
