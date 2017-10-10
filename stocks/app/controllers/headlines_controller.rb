@@ -86,6 +86,7 @@ class HeadlinesController < ApplicationController
         keystats = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/stats")
         financials = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/financials")
         logo = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/logo")
+        single_stock_news = HTTParty.get("https://api.iextrading.com/1.0/stock/#{params[:id]}/news/last/6")
 
         def jsonParse(result)
             return JSON.parse result.to_s, symbolize_names: true
@@ -119,6 +120,7 @@ class HeadlinesController < ApplicationController
         @financials = jsonParse(financials)
         @logo = jsonParse(logo)
         @shortTweets = stockTweets
+        @stockNews = jsonParse(single_stock_news)
         
 
     end

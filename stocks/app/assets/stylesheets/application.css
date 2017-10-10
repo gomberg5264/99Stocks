@@ -26,9 +26,13 @@ body {
     /* background: rgba(0,0,0,0.80); */
     width: 100%;
     /* background: black; */
-    background: #0f0c29;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* background: #0f0c29;  
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); */
+    background: #C33764;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     
     
 }
@@ -36,13 +40,14 @@ body {
 /* NAVIGATION */
 
 nav {
-    background: black;
+    background: #42416d;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: fixed;
     width: 100%;
     z-index: 2;
+    top: 0;
 }
 
 .logo-container {
@@ -152,6 +157,8 @@ nav a {
     width: 15%;
     position: fixed;
     padding: 0;
+    margin-top:0;
+    top: 50px;
 }
 
 .sidebar-ul {
@@ -178,7 +185,7 @@ nav a {
 }
 
 .sidebar-ul .sidebar-div-link:hover {
-    background: black;
+    background: #2d2c5d;
 }
 
 .sidebar-ul li a {
@@ -243,7 +250,7 @@ nav a {
 
 
  #dash-content {
-     height: 180vh;
+     height: 140vh;
      width: 85%;
      position: relative;
      margin-left: 15%;  
@@ -503,11 +510,12 @@ nav a {
      border-bottom: 0.5px solid rgba(250, 250, 250, 0.7);
      height: 30%;
      display: flex;
-     align-items: center;
+     justify-content: space-between;
+     
  }
 
  .left-box-top h1 {
-     font-size: 100pt;
+     font-size: 80pt;
      font-weight: 100;
      margin: 0;
      padding: 0;
@@ -531,12 +539,9 @@ nav a {
 
 .lbt-left {
     width: 50%;
+    padding-right: 10px;
 }
 
-.lbt-right {
-    width: 50%;
-    padding: 8px;
-}
 
 .left-box-bottom {
     height: 70%;
@@ -544,17 +549,30 @@ nav a {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    text-align: left;
 }
 
- .key_stat {
-     height: 4%;
-     width: 32%;
-     font-weight: 300;
-     font-size: 11pt;
-     letter-spacing: 1px;
- }
+.key_stat {
+    height: 4%;
+    width: 32%;
+    font-weight: 300;
+    font-size: 11pt;
+    letter-spacing: 1px;
+}
 
- /* RIGHT BOX */
+/* RIGHT BOX */
+.lbt-right {
+    width: 90%;
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;;
+}
+
+.lbt-right h5 {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+}
 
  .right-box {
     border-left: 0.5px solid rgba(250, 250, 250, 0.7);
@@ -562,11 +580,13 @@ nav a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
  }
 
  .price {
-     height: 30%;
+     height: 100%;
      text-align: center;
+     width: 45%;
  }
 
  .price h1 {
@@ -597,7 +617,7 @@ nav a {
  }
 
  .financials {
-    height: 60%;
+    height: 70%;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -608,8 +628,30 @@ nav a {
 }
 
 .financials-stats {
-    height: 4%;
-    width: 60%;
+    height: 8%;
+    width: 98%;
     letter-spacing: 1px;
-
 }
+
+.financials-stats a {
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200;
+    text-decoration: none;
+}
+
+.right-box .logo {
+    margin: 0 auto;
+    height: 50%;
+    width: 80%;
+}
+
+.company-desc {
+    width: 60%;
+    text-align: center;
+}
+
+.detail-desc {
+    width: 40%;
+}
+
