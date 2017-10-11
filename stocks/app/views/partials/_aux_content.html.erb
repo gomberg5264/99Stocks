@@ -3,6 +3,10 @@
     <div class="dash" id="dash-content">
         <div class="dash-row" id="top-bar">
             <h2>Dashboard <span>Welcome back, </span></h2>
+            <%= form_tag(search_path, :method => "get") do %>
+                <%= text_field_tag(:query, placeholder="Search By Ticker")%>
+                <%= submit_tag("Search") %>
+            <% end %>
         </div>
         <div class="dash-row" id="favorites">
             <%= render './partials/top_charts'%>

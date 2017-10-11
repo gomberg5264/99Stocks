@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: 'headlines#home'
   get '/dashboard' => 'headlines#dashboard', as: 'dashboard'
   get '/dashboard/stocks/:id' => 'headlines#single', as: 'single'
+  get '/dashboard/search' => 'headlines#search', as: 'search'
 end
