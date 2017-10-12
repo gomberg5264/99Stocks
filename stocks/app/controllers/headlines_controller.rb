@@ -170,5 +170,42 @@ class HeadlinesController < ApplicationController
         @stockNews = jsonParse(single_stock_news)
     end
 
+    def news
+        newsKey = Rails.application.secrets.news_api_key || ENV["NEWS_API_KEY"]
+        stockTwits = HTTParty.get('https://api.stocktwits.com/api/2/streams/trending.json')
+        market_news = HTTParty.get("https://newsapi.org/v1/articles?source=cnbc&sortBy=top&apiKey=#{newsKey}")
+        economist = HTTParty.get("https://newsapi.org/v1/articles?source=the-economist&sortBy=top&apiKey=#{newsKey}")
+
+        def jsonParse(result)
+            return JSON.parse result.to_s, symbolize_names: true
+        end
+
+        def stockTweets 
+            tweet_arr = Array.new
+            count = 0
+            
+            (0..29).each do |i|
+                if count > 2
+                    break
+                elsif @stockTwits[:messages][i][:body].length < 79 && @stockTwits[:messages][i][:body].length > 25 && 
+                    @stockTwits[:messages][i][:user][:avatar_url] != "http://avatars.stocktwits.com/images/default_avatar_thumb.jpg"
+                    tweet_arr[count] = {
+                        :name => (@stockTwits[:messages][i][:user][:name]),
+                        :image => (@stockTwits[:messages][i][:user][:avatar_url]),
+                        :body => (@stockTwits[:messages][i][:body])
+                    }
+                    count += 1
+                end
+            end
+            return tweet_arr
+        end
+
+        @stockTwits = jsonParse(stockTwits)
+        @shortTweets = stockTweets
+        @market = jsonParse(market_news)
+        @econ = jsonParse(economist)
+
+    end
+
 
 end

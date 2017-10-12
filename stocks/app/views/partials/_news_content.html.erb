@@ -1,0 +1,23 @@
+<div id="dash-container">
+    <%= render './partials/side_nav'%>
+    <div class="news-container">
+        <% @market[:articles].each do |m| %>
+        <div class="news-tile">
+            <div class="left-inner">
+                <%= m[:title]%>
+            </div>
+            <div class="right-inner" style="background-image: url(<%=m[:urlToImage]%>); 
+            background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        </div>
+        <% end %>
+        <% @econ[:articles].each do |e| %>
+        <div class="news-tile">
+            <div class="left-inner">
+                <%= e[:title] %>
+            </div>
+            <div class="right-inner" style="background-image: url(<%=e[:urlToImage]%>); 
+            background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        </div>
+        <% end %>
+    </div>
+</div>
