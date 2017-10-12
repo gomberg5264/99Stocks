@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/dashboard' => 'headlines#dashboard', as: 'dashboard'
   get '/dashboard/stocks/:id' => 'headlines#single', as: 'single'
   get '/dashboard/search' => 'headlines#search', as: 'search'
+  get '/dashboard/news' => 'headlines#news', as: 'news'
 end

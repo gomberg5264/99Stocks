@@ -1,82 +1,94 @@
-<div id="dash-container">
-    <%= render './partials/side_nav'%>
-    <div class="layout" id="content-layout">
-        <div class="left-box">
-            <div class="left-box-top">
-                <div class="lbt-left">
-                    <h1><%= @company[:symbol] %><h1>
-                    <h3><%= @company[:companyName] %><h3>
-                </div>
-                <div class="price">
-                    <h1>$<%= @quote[:latestPrice].round(2)%></h1>
-                    <% if @quote[:changePercent] < 0 %>
-                        <h2 style="color:red;"><%= @quote[:changePercent].round(2)%>% <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></h2>
-                    <% else %>
-                        <h2 style="color:green;"><%= @quote[:changePercent].round(2)%>% <i class="fa fa-arrow-circle-up" aria-hidden="true"></i></h2>
-                    <% end %>
-                    <h3><%= number_with_delimiter(@quote[:avgTotalVolume], :delimiter => ',')%> shares traded</h3>
-                </div>
-            </div>
-            <div class="left-box-bottom">
-                <div class="key_stat">MktCp: $<%= number_with_delimiter(@keystats[:marketcap], :delimiter => ',') %></div>
-                <div class="key_stat">Beta: <%= @keystats[:beta].round(2) %></div>
-                <div class="key_stat">52wk Hi: $<%= @keystats[:week52high].round(2) %></div>
-                <div class="key_stat">52wk Lo: $<%= @keystats[:week52low].round(2) %></div>
-                <div class="key_stat">Short Int: <%= number_with_delimiter(@keystats[:shortInterest], :delimiter => ',') %></div>
-                <div class="key_stat">EPS: <%= @keystats[:latestEPS] %></div>
-                <div class="key_stat">Shrs Out: <%= number_with_delimiter(@keystats[:sharesOutstanding], :delimiter => ',') %></div>
-                <div class="key_stat">Float: <%= number_with_delimiter(@keystats[:float], :delimiter => ',') %></div>
-                <div class="key_stat">Return on Equity: <%= @keystats[:returnOnEquity] %></div>
-                <div class="key_stat">EBITDA: <%= number_with_delimiter(@keystats[:EBITDA], :delimiter => ',') %></div>
-                <div class="key_stat">Revenue: <%= number_with_delimiter(@keystats[:revenue], :delimiter => ',') %></div>
-                <div class="key_stat">Gross: <%= number_with_delimiter(@keystats[:grossProfit], :delimiter => ',') %></div>
-                <div class="key_stat">Price to Book: <%= @keystats[:priceToBook] %></div>
-                <div class="key_stat">Rev per shr: <%= @keystats[:revenuePerShare] %></div>
-                <div class="key_stat">Consensus EPS: <%= @keystats[:consensusEPS] %></div>
-                <div class="key_stat">Profit Margin: <%= @keystats[:profitMargin] %></div>
-                <div class="key_stat">Institution Held: <%= @keystats[:institutionPercent] %>%</div>
-                <div class="key_stat">Insider Held: <%= @keystats[:insiderPercent] %>%</div>
-                <div class="key_stat">1 Mo Chg: <%= @keystats[:month1ChangePercent].round(2) %>%</div>
-                <div class="key_stat">3 Mo Chg: <%= @keystats[:month3ChangePercent].round(2) %>%</div>
-                <div class="key_stat">6 Mo Chg: <%= @keystats[:month6ChangePercent].round(2) %>%</div>
-                <div class="key_stat">1 Yr Chg: <%= @keystats[:year1ChangePercent].round(2) %>%</div>
-                <div class="key_stat">5 Yr Chg: <%= @keystats[:year5ChangePercent].round(2) %>%</div>
-                <div class="key_stat">YTD Chg: <%= @keystats[:ytdChangePercent].round(2) %>%</div>
-                <div class="key_stat">Profit (gross): $<%= number_with_delimiter(@financials[:financials][0][:grossProfit], :delimiter => ',') %></div>
-                <div class="key_stat">Cost of Rev: $<%= number_with_delimiter(@financials[:financials][0][:costOfRevenue], :delimiter => ',') %></div>
-                <div class="key_stat">Op Rev: $<%= number_with_delimiter(@financials[:financials][0][:operatingRevenue], :delimiter => ',') %></div>
-                <div class="key_stat">Ttl Rev: $<%= number_with_delimiter(@financials[:financials][0][:totalRevenue], :delimiter => ',') %></div>
-                <div class="key_stat">Op Income: $<%= number_with_delimiter(@financials[:financials][0][:operatingIncome], :delimiter => ',') %></div>
-                <div class="key_stat">Net Income: $<%= number_with_delimiter(@financials[:financials][0][:netIncome], :delimiter => ',') %></div>
-                <div class="key_stat">Op Expense: $<%= number_with_delimiter(@financials[:financials][0][:operatingExpense], :delimiter => ',') %></div>
-                <div class="key_stat">Curr Assets: $<%= number_with_delimiter(@financials[:financials][0][:currentAssets], :delimiter => ',') %></div>
-                <div class="key_stat">Ttl Assets: $<%= number_with_delimiter(@financials[:financials][0][:totalAssets], :delimiter => ',') %></div>
-                <div class="key_stat">Ttl Liabilities: $<%= number_with_delimiter(@financials[:financials][0][:totalLiabilities], :delimiter => ',') %></div>
-                <div class="key_stat">Curr Cash: $<%= number_with_delimiter(@financials[:financials][0][:currentCash], :delimiter => ',') %></div>
-                <div class="key_stat">Curr Debt: $<%= number_with_delimiter(@financials[:financials][0][:currentDebt], :delimiter => ',') %></div>
-                <div class="key_stat">Ttl Cash: $<%= number_with_delimiter(@financials[:financials][0][:totalCash], :delimiter => ',') %></div>
-                <div class="key_stat">Ttl Debt: $<%= number_with_delimiter(@financials[:financials][0][:totalDebt], :delimiter => ',') %></div>
-                <div class="key_stat">Cash Flow: $<%= number_with_delimiter(@financials[:financials][0][:cashFlow], :delimiter => ',') %></div>
-            </div>
+<% if @quote[:companyName] == "" %>
+    <div id="dash-container">
+        <%= render './partials/side_nav'%>
+        <div class="layout" id="content=layout">
+            <%= form_tag(search_path, :method => "get") do %>
+                <%= text_field_tag(:query, placeholder="Search By Ticker")%>
+                <%= submit_tag("Search") %>
+            <% end %>
+            <h2>SYMBOL NOT FOUND !</h2>
         </div>
-        <div class="right-box">
-            <div class="lbt-right">
-                <div class="company-desc">
-                    <div class="logo" style="background-image: url(<%= @logo[:url] %>); background-size: contain; background-repeat: no-repeat; 
-                    background-position: center;"></div>
-                    <h5>Chief Executive: <%= @company[:CEO]%></h5>
+    </div>
+<% else %>
+    <div id="dash-container">
+        <%= render './partials/side_nav'%>
+        <div class="layout" id="content-layout">
+            <div class="left-box">
+                <div class="left-box-top">
+                    <div class="lbt-left">
+                        <h1><%= @company[:symbol] %><h1>
+                        <h3><%= @company[:companyName] %><h3>
+                    </div>
+                    <div class="price">
+                        <h1>$<%= @quote[:latestPrice].round(2)%></h1>
+                        <% if @quote[:changePercent] < 0 %>
+                            <h2 style="color:red;"><%= @quote[:changePercent].round(2)%>% <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></h2>
+                        <% else %>
+                            <h2 style="color:green;"><%= @quote[:changePercent].round(2)%>% <i class="fa fa-arrow-circle-up" aria-hidden="true"></i></h2>
+                        <% end %>
+                        <h3><%= number_with_delimiter(@quote[:avgTotalVolume], :delimiter => ',')%> shares traded</h3>
+                    </div>
                 </div>
-                <div class="detail-desc">
-                    <h5>Industry: <%= @company[:industry] %><h5>
-                    <h5><%= @company[:description]%></h5>
+                <div class="left-box-bottom">
+                    <div class="key_stat">MktCp: $<%= number_with_delimiter(@keystats[:marketcap], :delimiter => ',') %></div>
+                    <div class="key_stat">Beta: <%= @keystats[:beta].round(2) %></div>
+                    <div class="key_stat">52wk Hi: $<%= @keystats[:week52high].round(2) %></div>
+                    <div class="key_stat">52wk Lo: $<%= @keystats[:week52low].round(2) %></div>
+                    <div class="key_stat">Short Int: <%= number_with_delimiter(@keystats[:shortInterest], :delimiter => ',') %></div>
+                    <div class="key_stat">EPS: <%= @keystats[:latestEPS] %></div>
+                    <div class="key_stat">Shrs Out: <%= number_with_delimiter(@keystats[:sharesOutstanding], :delimiter => ',') %></div>
+                    <div class="key_stat">Float: <%= number_with_delimiter(@keystats[:float], :delimiter => ',') %></div>
+                    <div class="key_stat">Return on Equity: <%= @keystats[:returnOnEquity] %></div>
+                    <div class="key_stat">EBITDA: <%= number_with_delimiter(@keystats[:EBITDA], :delimiter => ',') %></div>
+                    <div class="key_stat">Revenue: <%= number_with_delimiter(@keystats[:revenue], :delimiter => ',') %></div>
+                    <div class="key_stat">Gross: <%= number_with_delimiter(@keystats[:grossProfit], :delimiter => ',') %></div>
+                    <div class="key_stat">Price to Book: <%= @keystats[:priceToBook] %></div>
+                    <div class="key_stat">Rev per shr: <%= @keystats[:revenuePerShare] %></div>
+                    <div class="key_stat">Consensus EPS: <%= @keystats[:consensusEPS] %></div>
+                    <div class="key_stat">Profit Margin: <%= @keystats[:profitMargin] %></div>
+                    <div class="key_stat">Institution Held: <%= @keystats[:institutionPercent] %>%</div>
+                    <div class="key_stat">Insider Held: <%= @keystats[:insiderPercent] %>%</div>
+                    <div class="key_stat">1 Mo Chg: <%= @keystats[:month1ChangePercent].round(2) %>%</div>
+                    <div class="key_stat">3 Mo Chg: <%= @keystats[:month3ChangePercent].round(2) %>%</div>
+                    <div class="key_stat">6 Mo Chg: <%= @keystats[:month6ChangePercent].round(2) %>%</div>
+                    <div class="key_stat">1 Yr Chg: <%= @keystats[:year1ChangePercent].round(2) %>%</div>
+                    <div class="key_stat">5 Yr Chg: <%= @keystats[:year5ChangePercent].round(2) %>%</div>
+                    <div class="key_stat">YTD Chg: <%= @keystats[:ytdChangePercent].round(2) %>%</div>
+                    <div class="key_stat">Profit (gross): $<%= number_with_delimiter(@financials[:financials][0][:grossProfit], :delimiter => ',') %></div>
+                    <div class="key_stat">Cost of Rev: $<%= number_with_delimiter(@financials[:financials][0][:costOfRevenue], :delimiter => ',') %></div>
+                    <div class="key_stat">Op Rev: $<%= number_with_delimiter(@financials[:financials][0][:operatingRevenue], :delimiter => ',') %></div>
+                    <div class="key_stat">Ttl Rev: $<%= number_with_delimiter(@financials[:financials][0][:totalRevenue], :delimiter => ',') %></div>
+                    <div class="key_stat">Op Income: $<%= number_with_delimiter(@financials[:financials][0][:operatingIncome], :delimiter => ',') %></div>
+                    <div class="key_stat">Net Income: $<%= number_with_delimiter(@financials[:financials][0][:netIncome], :delimiter => ',') %></div>
+                    <div class="key_stat">Op Expense: $<%= number_with_delimiter(@financials[:financials][0][:operatingExpense], :delimiter => ',') %></div>
+                    <div class="key_stat">Curr Assets: $<%= number_with_delimiter(@financials[:financials][0][:currentAssets], :delimiter => ',') %></div>
+                    <div class="key_stat">Ttl Assets: $<%= number_with_delimiter(@financials[:financials][0][:totalAssets], :delimiter => ',') %></div>
+                    <div class="key_stat">Ttl Liabilities: $<%= number_with_delimiter(@financials[:financials][0][:totalLiabilities], :delimiter => ',') %></div>
+                    <div class="key_stat">Curr Cash: $<%= number_with_delimiter(@financials[:financials][0][:currentCash], :delimiter => ',') %></div>
+                    <div class="key_stat">Curr Debt: $<%= number_with_delimiter(@financials[:financials][0][:currentDebt], :delimiter => ',') %></div>
+                    <div class="key_stat">Ttl Cash: $<%= number_with_delimiter(@financials[:financials][0][:totalCash], :delimiter => ',') %></div>
+                    <div class="key_stat">Ttl Debt: $<%= number_with_delimiter(@financials[:financials][0][:totalDebt], :delimiter => ',') %></div>
+                    <div class="key_stat">Cash Flow: $<%= number_with_delimiter(@financials[:financials][0][:cashFlow], :delimiter => ',') %></div>
                 </div>
-            </div> 
-            <div class="financials">
-                <% @stockNews.each do |n| %>
-                    <div class="financials-stats"><a href=<%= n[:url]%> ><i class="fa fa-external-link-square" aria-hidden="true"></i> <%= n[:headline] %></a></div>
-                <% end %>
+            </div>
+            <div class="right-box">
+                <div class="lbt-right">
+                    <div class="company-desc">
+                        <div class="logo" style="background-image: url(<%= @logo[:url] %>); background-size: contain; background-repeat: no-repeat; 
+                        background-position: center;"></div>
+                        <h5>Chief Executive: <%= @company[:CEO]%></h5>
+                    </div>
+                    <div class="detail-desc">
+                        <h5>Industry: <%= @company[:industry] %><h5>
+                        <h5><%= @company[:description]%></h5>
+                    </div>
+                </div> 
+                <div class="financials">
+                    <% @stockNews.each do |n| %>
+                        <div class="financials-stats"><a href=<%= n[:url]%> ><i class="fa fa-external-link-square" aria-hidden="true"></i> <%= n[:headline] %></a></div>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
-
-</div>
+<% end %>
